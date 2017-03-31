@@ -8,6 +8,10 @@ from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Image
 
 
 class EOB:
+    """
+    EOB loosely based on AETNA example found here:
+    https://ctmirror.org/2014/09/02/what-is-this-form-the-explanation-of-benefits/
+    """
 
     #----------------------------------------------------------------------
     def __init__(self, pdf_file):
