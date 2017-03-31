@@ -29,7 +29,7 @@ class EOB:
             '</b></font>'.format('01/01/2017')
         p = Paragraph(ptext, self.styles["Normal"])
         p.wrapOn(self.canvas, self.width, self.height)
-        p.drawOn(self.canvas, *self.coord(145, 17, mm))
+        p.drawOn(self.canvas, *self.coord(145, 14, mm))
 
         ptext = '''<font size=10>
         <b>Member:</b> {member}<br/>
@@ -45,6 +45,14 @@ class EOB:
         p = Paragraph(ptext, self.styles["Normal"])
         p.wrapOn(self.canvas, self.width, self.height)
         p.drawOn(self.canvas, *self.coord(145, 35, mm))
+        
+    #----------------------------------------------------------------------
+    def create_bold_text(self, text, size=8):
+        """"""
+        return Paragraph('''<font size={size}>
+        {text}</font>
+        '''.format(size=size, text=text), 
+           self.styles['Normal'])
 
     #----------------------------------------------------------------------
     def create_payment_summary(self):
@@ -54,13 +62,42 @@ class EOB:
         p.wrapOn(self.canvas, self.width, self.height)
         p.drawOn(self.canvas, *self.coord(15, 47, mm))
 
+        colWidths = [75, 125, 50, 125, 50, 150]
+        plan_title = Paragraph(
+            '<font size=8>Your plan paid</font>',
+            self.styles["Normal"])
+        owe_title = Paragraph(
+            '<font size=8>You owe or already paid</font>',
+            self.styles["Normal"])
+        
+        data = [['', '', '', plan_title, '', owe_title],
+                [self.create_bold_text('Patient'),
+                 self.create_bold_text('Provider'),
+                 self.create_bold_text('Amount'),
+                 self.create_bold_text('Sent to'),
+                 self.create_bold_text('Date'),
+                 self.create_bold_text('Amount'),
+                 ]]
+        table = Table(data, colWidths=colWidths)
+        table.wrapOn(self.canvas, self.width, self.height)
+        table.drawOn(self.canvas, 20, 600)
+
+
+    #----------------------------------------------------------------------
+    def create_claims(self):
+        """"""
         fsize = 8
+        
+        ptext = '<font size=26>Your claims up close</font>'
+        p = Paragraph(ptext, self.styles["Normal"])
+        p.wrapOn(self.canvas, self.width, self.height)
+        p.drawOn(self.canvas, *self.coord(10, 100, mm))
 
         claim = Paragraph('''<font size={0}>
-        Claim ID {1}<br/>
-        Received on 12/12/16<br/></font>
-        '''.format(fsize, 'ER123456789'),
-           self.styles["Normal"])
+            Claim ID {1}<br/>
+            Received on 12/12/16<br/></font>
+            '''.format(fsize, 'ER123456789'),
+               self.styles["Normal"])
         billed = Paragraph(
             '<font size={}>Amount<br/>billed</font>'.format(fsize),
             self.styles["Normal"])
@@ -83,22 +120,14 @@ class EOB:
             '<font size={}>Your<br/>coinsurance</font>'.format(fsize), self.styles["Normal"])
         owe = Paragraph(
             '<font size={}>You owe<br/>C+D+E+H=I</font>'.format(fsize), self.styles["Normal"])
-
+    
         data = [[claim, billed, member_rate, pending, applied,
                  remaining, plan_pays, coins, owe],
                 ]
         colWidths = [110, 50, 50, 60, 50, 50, 50, 70, 60]
         table = Table(data, colWidths=colWidths)
         table.wrapOn(self.canvas, self.width, self.height)
-        table.drawOn(self.canvas, 15, 60)
-
-
-
-
-    #----------------------------------------------------------------------
-    def create_claims(self):
-        """"""
-        pass
+        table.drawOn(self.canvas, 20, 450)
 
 
     #----------------------------------------------------------------------
@@ -113,9 +142,10 @@ def main(pdf_file):
     eob = EOB(pdf_file)
     eob.create_header()
     eob.create_payment_summary()
+    eob.create_claims()
     eob.save()
 
 
 if __name__ == '__main__':
-    pdf_file = "form_letter.pdf"
+    pdf_file = "eob.pdf"
     main(pdf_file)
