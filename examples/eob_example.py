@@ -49,9 +49,6 @@ class EOB:
         p.wrapOn(self.canvas, self.width, self.height)
         p.drawOn(self.canvas, *self.coord(145, 35, mm))
 
-        print
-
-
     #----------------------------------------------------------------------
     def create_payment_summary(self):
         """"""
