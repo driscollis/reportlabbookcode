@@ -175,7 +175,9 @@ class EOB:
         colWidths = [110, 50, 40, 60, 50, 40, 50, 40, 55, 60]
         table_style = TableStyle(
             [('INNERGRID', (0,0), (-1,-1), 0.25, colors.black),  # Add grid to cells
-             ('BOX', (0,0), (-1,-1), 0.25, colors.black)  # add outer border
+             ('BOX', (0,0), (-1,-1), 0.25, colors.black),  # add outer border
+             ('BACKGROUND', (1,0), (1, -1), colors.lightgoldenrodyellow),
+             ('BACKGROUND', (7,0), (7, -1), colors.lightgoldenrodyellow)
              ])
 
         table = Table(data, colWidths=colWidths)
