@@ -10,7 +10,7 @@ def simple_pie_chart():
 
     pie.x = 150
     pie.y = 65
-    pie_data = data
+    pie.data = data
     pie.labels = [letter for letter in 'abcd']
     pie.slices.strokeWidth = 0.5
     pie.slices[3].popout = 20

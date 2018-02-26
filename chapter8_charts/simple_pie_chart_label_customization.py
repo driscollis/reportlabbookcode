@@ -10,7 +10,7 @@ def simple_pie_chart_label_customization():
 
     pie.x = 150
     pie.y = 65
-    pie_data = data
+    pie.data = data
     pie.labels = [letter for letter in 'abcd']
 
     # enable label customization
