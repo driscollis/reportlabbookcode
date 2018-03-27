@@ -12,5 +12,5 @@ def add_image(image_path):
     my_canvas.save()
 
 if __name__ == '__main__':
-    image_path = 'snakehead.png'
+    image_path = 'snakehead.jpg'
     add_image(image_path)
