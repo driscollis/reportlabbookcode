@@ -30,30 +30,32 @@ def form_letter():
     flowables.append(im)
 
     styles = getSampleStyleSheet()
-    styles.add(ParagraphStyle(name='Justify', alignment=TA_JUSTIFY))
-    ptext = '<font size=12>%s</font>' % formatted_time
+    # Modify the Normal Style
+    styles["Normal"].fontSize = 12
+    styles["Normal"].leading = 14
+    
+    # Create a Justify style
+    styles.add(ParagraphStyle(name='Justify', alignment=TA_JUSTIFY))    
 
-    flowables.append(Paragraph(ptext, styles["Normal"]))
+    flowables.append(Paragraph(formatted_time, styles["Normal"]))
     flowables.append(Spacer(1, 12))
 
     # Create return address
-    ptext = '<font size=12>%s</font>' % full_name
-    flowables.append(Paragraph(ptext, styles["Normal"]))
+    flowables.append(Paragraph(full_name, styles["Normal"]))
     for part in address_parts:
-        ptext = '<font size=12>%s</font>' % part.strip()
-        flowables.append(Paragraph(ptext, styles["Normal"]))
+        flowables.append(Paragraph(part.strip(), styles["Normal"]))
 
     flowables.append(Spacer(1, 12))
-    ptext = '<font size=12>Dear %s:</font>' % full_name.split()[0].strip()
+    ptext = 'Dear {}:'.format(full_name.split()[0].strip())
     flowables.append(Paragraph(ptext, styles["Normal"]))
     flowables.append(Spacer(1, 12))
 
     ptext = '''
-    <font size=12>We would like to welcome you to our subscriber
+    We would like to welcome you to our subscriber
     base for {magName} Magazine! You will receive {issueNum} issues at
     the excellent introductory price of ${subPrice}. Please respond by
     {limitedDate} to start receiving your subscription and get the
-    following free gift: {freeGift}.</font>
+    following free gift: {freeGift}.
     '''.format(magName=magName,
                issueNum=issueNum,
                subPrice=subPrice,
@@ -62,15 +64,15 @@ def form_letter():
     flowables.append(Paragraph(ptext, styles["Justify"]))
     flowables.append(Spacer(1, 12))
 
-    ptext = '''<font size=12>Thank you very much and we look
-    forward to serving you.</font>'''
+    ptext = '''Thank you very much and we look
+    forward to serving you.'''
 
     flowables.append(Paragraph(ptext, styles["Justify"]))
     flowables.append(Spacer(1, 12))
-    ptext = '<font size=12>Sincerely,</font>'
+    ptext = 'Sincerely,'
     flowables.append(Paragraph(ptext, styles["Normal"]))
     flowables.append(Spacer(1, 48))
-    ptext = '<font size=12>Ima Sucker</font>'
+    ptext = 'Ima Sucker'
     flowables.append(Paragraph(ptext, styles["Normal"]))
     flowables.append(Spacer(1, 12))
     doc.build(flowables)
