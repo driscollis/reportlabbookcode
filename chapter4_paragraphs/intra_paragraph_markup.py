@@ -5,7 +5,7 @@ from reportlab.platypus import SimpleDocTemplate, Paragraph
 from reportlab.lib.styles import getSampleStyleSheet
 
 def intra_tags():
-    doc = SimpleDocTemplate("intra_tags.pdf",
+    doc = SimpleDocTemplate("intra_paragraph_markup.pdf",
                             pagesize=letter
                             )
     styles = getSampleStyleSheet()
