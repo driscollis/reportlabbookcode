@@ -7,7 +7,7 @@ from reportlab.pdfgen import canvas
 
 
 def asian_font_demo():
-    my_canvas = canvas.Canvas("asian_font.pdf",
+    my_canvas = canvas.Canvas("asian_font_demo2.pdf",
                               pagesize=letter)
 
     # Set a Japanese font

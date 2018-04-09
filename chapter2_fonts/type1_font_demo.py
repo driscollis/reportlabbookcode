@@ -9,7 +9,7 @@ from reportlab.pdfgen import canvas
 
 
 def embedded_font_demo():
-    my_canvas = canvas.Canvas("embed_font.pdf",
+    my_canvas = canvas.Canvas("type1_font_demo.pdf",
                               pagesize=letter)
     reportlab_folder = os.path.dirname(reportlab.__file__)
     fonts_folder = os.path.join(reportlab_folder, 'fonts')
