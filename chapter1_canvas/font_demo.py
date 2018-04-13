@@ -11,7 +11,7 @@ def font_demo(my_canvas, fonts):
         pos_y -= 10
 
 if __name__ == '__main__':
-    my_canvas = canvas.Canvas("fonts.pdf",
+    my_canvas = canvas.Canvas("font_demo.pdf",
                               pagesize=letter)
     fonts = my_canvas.getAvailableFonts()
     font_demo(my_canvas, fonts)

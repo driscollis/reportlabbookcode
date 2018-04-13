@@ -19,7 +19,7 @@ def preformatted_paragraph():
     flowables.append(para)
 
     text = "<para align=center>Hello, I'm a Preformatted Paragraph</para>"
-    para = Preformatted(text, style=styles["BodyText"])
+    para = Preformatted(text, style=styles["Code"])
     flowables.append(para)
 
     doc.build(flowables)
