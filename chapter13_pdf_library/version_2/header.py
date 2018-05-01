@@ -12,9 +12,10 @@ def header(canvas, doc):
     ptext = '<font size=10><b>Statement Date: {}' \
         '</b></font>'.format('01/01/2017')
     
-    img = Image(doc.logo_path, width=76.2, height=76.2)
-    img.wrapOn(canvas, width, height)
-    img.drawOn(canvas, 100, 725)
+    if doc.logo_path:
+        img = Image(doc.logo_path, width=76.2, height=76.2)
+        img.wrapOn(canvas, width, height)
+        img.drawOn(canvas, 100, 700)
 
     p = Paragraph(ptext, styles["Normal"])
     p.wrapOn(canvas, width, height)

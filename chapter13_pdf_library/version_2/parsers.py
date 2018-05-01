@@ -2,6 +2,8 @@
 
 import json
 
+from lxml import objectify
+
 
 class JSON:
     """
@@ -24,3 +26,14 @@ def parse_json(json_file):
         data = json.load(f)
     
     return JSON(data)
+
+
+def parse_xml(xml_file):
+    """
+    Opens an XML file and turns it into an lxml.objectify object
+    """
+    with open(xml_file) as f:
+        xml = f.read()
+        
+    root = objectify.fromstring(xml)
+    return root
