@@ -5,6 +5,15 @@ import json
 from lxml import objectify
 
 
+class Claim:
+    
+    def __init__(self, data):
+        """
+        Accepts a data dictionary and turns it into a
+        claim object
+        """
+        pass
+
 class JSON:
     """
     A way to "objectify" a json object to match
@@ -16,6 +25,17 @@ class JSON:
         self.member_id = data['patient']['member_id']
         self.group_num = data['patient']['group_num']
         self.group_name = data['patient']['group_name']
+        
+        self.claims = []
+        data_claims = ['patient']['claims']['claim']
+        if isinstance(data_claims, dict):
+            # only a single claim exists
+            claim = Claim(data_claims) 
+            self.claims.append(claim)
+        else:
+            # claims is a list
+            for claim in data_claims:
+                self.claims.append(Claim(claim))
     
     
 def parse_json(json_file):
