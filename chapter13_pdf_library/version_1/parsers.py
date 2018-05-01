@@ -1,3 +1,5 @@
+# parsers.py
+
 import json
 
 
@@ -15,6 +17,9 @@ class JSON:
     
     
 def parse_json(json_file):
+    """
+    Opens a JSON file and turns it into an object
+    """
     with open(json_file) as f:
         data = json.load(f)
     

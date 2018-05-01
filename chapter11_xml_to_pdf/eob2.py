@@ -1,4 +1,4 @@
-# eob2.py
+# header_and_footer_main.py
 
 from reportlab.lib.pagesizes import letter
 from reportlab.lib.styles import getSampleStyleSheet
