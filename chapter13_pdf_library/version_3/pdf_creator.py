@@ -1,9 +1,9 @@
 # pdf_creator.py
 
+from custom_stylesheet import get_custom_stylesheet_1
 from header import header
 from reportlab.lib import colors
 from reportlab.lib.pagesizes import letter
-from reportlab.lib.styles import getSampleStyleSheet
 from reportlab.platypus import Indenter, Paragraph, Spacer
 from reportlab.platypus import SimpleDocTemplate
 from reportlab.platypus import Table, TableStyle
@@ -25,7 +25,7 @@ class EOB:
         self.doc.data = self.data
         
         self.elements = []
-        self.styles = getSampleStyleSheet()
+        self.styles = get_custom_stylesheet_1()
         self.width, self.height = letter
         self.create()
         

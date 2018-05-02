@@ -1,21 +1,21 @@
 # header.py
 
-from reportlab.lib.styles import getSampleStyleSheet
+from custom_stylesheet import get_custom_stylesheet_1
 from reportlab.platypus import Paragraph, Image
 
 
 def header(canvas, doc):
     width, height = doc.pagesize
     
-    styles = getSampleStyleSheet()
+    styles = get_custom_stylesheet_1()
     
     if doc.logo_path:
         img = Image(doc.logo_path, width=76.2, height=76.2)
         img.wrapOn(canvas, width, height)
         img.drawOn(canvas, 100, 700)
     
-    ptext = '<b>Statement Date: {}</b>'.format('01/01/2017')
-    p = Paragraph(ptext, styles["Normal"])
+    ptext = 'Statement Date: {}'.format('01/01/2017')
+    p = Paragraph(ptext, styles["Bold"])
     p.wrapOn(canvas, width, height)
     p.drawOn(canvas, 400, 700)
 
