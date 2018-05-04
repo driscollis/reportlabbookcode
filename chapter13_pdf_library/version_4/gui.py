@@ -124,7 +124,6 @@ class PDFPanel(wx.Panel):
         dlg.ShowModal()
         dlg.Destroy()
         
-        
     def show_error_msg(self, msg):
         """
         Display an error message
