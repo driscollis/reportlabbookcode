@@ -100,10 +100,3 @@ class ConfigDialog(wx.Dialog):
         dlg.ShowModal()
         dlg.Destroy()
         self.Close()
-
-if __name__ == '__main__':
-    app = wx.App(False)
-    dlg = ConfigDialog()
-    dlg.ShowModal()
-    dlg.Destroy()
-    app.MainLoop()

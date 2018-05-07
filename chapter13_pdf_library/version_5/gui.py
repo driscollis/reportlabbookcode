@@ -149,6 +149,9 @@ class PDFFrame(wx.Frame):
         self.Show()
 
     def create_menu(self):
+        """
+        Create the menu
+        """
         menubar = wx.MenuBar()
 
         file_menu = wx.Menu()

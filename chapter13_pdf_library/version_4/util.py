@@ -32,7 +32,6 @@ class ConfigObj:
             self.top_margin = int(config.get('General', 'top_margin'))
             self.bottom_margin = int(config.get('General', 'bottom_margin'))
             self.style = config.get('General', 'style')
-            self.output_dir = config.get('General', 'output_dir')
 
 
 def get_stylesheet():
