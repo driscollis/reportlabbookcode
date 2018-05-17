@@ -1,0 +1,49 @@
+{
+    "simple_form.pdf": {
+        "0": {
+            "type": "Text",
+            "name": "fname",
+            "flags": "0",
+            "justification": "Left",
+            "maxlength": "100"
+        },
+        "1": {
+            "type": "Text",
+            "name": "lname",
+            "flags": "0",
+            "justification": "Left",
+            "maxlength": "100"
+        },
+        "2": {
+            "type": "Text",
+            "name": "address",
+            "namealt": "Address",
+            "flags": "0",
+            "justification": "Left",
+            "maxlength": "100"
+        },
+        "3": {
+            "type": "Text",
+            "name": "city",
+            "namealt": "City",
+            "flags": "0",
+            "justification": "Left",
+            "maxlength": "100"
+        },
+        "4": {
+            "type": "Text",
+            "name": "state",
+            "namealt": "State",
+            "flags": "0",
+            "justification": "Left",
+            "maxlength": "100"
+        },
+        "5": {
+            "type": "Text",
+            "name": "zip_code",
+            "flags": "0",
+            "justification": "Left",
+            "maxlength": "100"
+        }
+    }
+}
