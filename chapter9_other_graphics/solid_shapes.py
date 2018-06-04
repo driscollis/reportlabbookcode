@@ -34,7 +34,6 @@ def solid_shapes():
     poly.fillColor = colors.purple
     drawing.add(poly)
     
-    
     drawing.save(formats=['pdf'], outDir='.', fnRoot='solid_shapes')
     
 if __name__ == '__main__':

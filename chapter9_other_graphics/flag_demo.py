@@ -1,6 +1,5 @@
 # flag_demo.py
 
-from reportlab.lib import colors
 from reportlab.graphics.widgets import flags
 from reportlab.graphics.shapes import Drawing, String
 

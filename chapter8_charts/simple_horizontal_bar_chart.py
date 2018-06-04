@@ -29,7 +29,7 @@ def simple_horizontal_bar_chart():
     bar.bars[3].fillColor = colors.purple
     
     bar.categoryAxis.labels.angle = 45
-    bar.categoryAxis.labels.dy = -15
+    bar.categoryAxis.labels.dx = -15
     
     d.add(bar, '')
 

@@ -87,14 +87,8 @@ class EOB:
         self.elements.append(Spacer(1, 20))
 
         colWidths = [75, 125, 50, 125, 50, 150]
-        plan_title = Paragraph(
-            '<font size=8>Your plan paid</font>',
-            self.styles["Normal"])
-        owe_title = Paragraph(
-            '<font size=8>You owe or already paid</font>',
-            self.styles["Normal"])
-
-        data = [['', '', '', plan_title, '', owe_title],
+        
+        data = [['', '', '', '', '', ''],
                 [self.create_text('Patient', bold=True),
                  self.create_text('Provider', bold=True),
                  self.create_text('Amount', bold=True),

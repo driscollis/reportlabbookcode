@@ -60,21 +60,15 @@ class EOB:
         p.drawOn(self.canvas, *self.coord(15, 47, mm))
 
         colWidths = [75, 125, 50, 125, 50, 150]
-        plan_title = Paragraph(
-                '<font size=8>Your plan paid</font>',
-                self.styles["Normal"])
-        owe_title = Paragraph(
-                '<font size=8>You owe or already paid</font>',
-                self.styles["Normal"])
-
-        data = [['', '', '', plan_title, '', owe_title],
-                    [self.create_bold_text('Patient'),
-                     self.create_bold_text('Provider'),
-                     self.create_bold_text('Amount'),
-                     self.create_bold_text('Sent to'),
-                     self.create_bold_text('Date'),
-                     self.create_bold_text('Amount'),
-                     ]]
+        
+        data = [['', '', '', '', '', ''],
+                [self.create_bold_text('Patient'),
+                 self.create_bold_text('Provider'),
+                 self.create_bold_text('Amount'),
+                 self.create_bold_text('Sent to'),
+                 self.create_bold_text('Date'),
+                 self.create_bold_text('Amount'),
+                 ]]
         table = Table(data, colWidths=colWidths)
         table.wrapOn(self.canvas, self.width, self.height)
         table.drawOn(self.canvas, 20, 600)
