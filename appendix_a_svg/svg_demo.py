@@ -7,6 +7,9 @@ from svglib.svglib import svg2rlg
 
 
 def svg_demo(image_path, output_path):
+    """
+    Convert an SVG to a PDF and PNG
+    """
     drawing = svg2rlg(image_path)
     renderPDF.drawToFile(drawing, output_path)
     fname = os.path.splitext(os.path.basename(image_path))[0]
@@ -15,4 +18,3 @@ def svg_demo(image_path, output_path):
 
 if __name__ == '__main__':
     svg_demo('snakehead.svg', 'svg_demo.pdf')
-    

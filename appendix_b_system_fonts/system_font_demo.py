@@ -8,6 +8,10 @@ from reportlab.pdfgen import canvas
 
 
 def system_font_demo(my_canvas, fonts):
+    """
+    Get the system's installed fonts, loop over
+    the fonts and add them to the PDF
+    """
     pos_y = 750
     for font in fonts:
         try:
@@ -15,9 +19,9 @@ def system_font_demo(my_canvas, fonts):
         except:
             # Skip this font
             continue
-        
+
         pdfmetrics.registerFont(ttf)
-        
+
         my_canvas.setFont(font, 12)
         my_canvas.drawString(30, pos_y, font)
         pos_y -= 10

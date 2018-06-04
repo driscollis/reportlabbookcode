@@ -12,7 +12,7 @@ def scale(drawing, scaling_factor):
     """
     scaling_x = scaling_factor
     scaling_y = scaling_factor
-    
+
     drawing.width = drawing.minWidth() * scaling_x
     drawing.height = drawing.height * scaling_y
     drawing.scale(scaling_x, scaling_y)
@@ -20,6 +20,9 @@ def scale(drawing, scaling_factor):
 
 
 def add_image(image_path, scaling_factor):
+    """
+    Scale an SVG and add it to a PDF
+    """
     my_canvas = canvas.Canvas('svg_scaled_on_canvas.pdf')
     drawing = svg2rlg(image_path)
     scaled_drawing = scale(drawing, scaling_factor=scaling_factor)
