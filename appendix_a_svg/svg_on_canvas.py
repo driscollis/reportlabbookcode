@@ -5,6 +5,9 @@ from reportlab.pdfgen import canvas
 from svglib.svglib import svg2rlg
 
 def add_image(image_path):
+    """
+    Convert an SVG to a PDF
+    """
     my_canvas = canvas.Canvas('svg_on_canvas.pdf')
     drawing = svg2rlg(image_path)
     renderPDF.draw(drawing, my_canvas, 0, 40)

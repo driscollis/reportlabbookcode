@@ -5,13 +5,16 @@ from svglib.svglib import svg2rlg
 
 
 def svg_demo(image_path, output_path):
+    """
+    Convert an SVG to a PDF
+    """
     drawing = svg2rlg(image_path)
-    
+
     doc = SimpleDocTemplate(output_path)
-    
+
     story = []
     story.append(drawing)
-    
+
     doc.build(story)
 
 if __name__ == '__main__':

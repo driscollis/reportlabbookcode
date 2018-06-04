@@ -6,6 +6,9 @@ from fontTools import ttLib
 from reportlab import rl_settings
 
 def find_installed_ttf_fonts():
+    """
+    Find all the installed TrueType fonts
+    """
     installed_fonts = []
     for folder in rl_settings.TTFSearchPath:
         if os.path.exists(folder):
@@ -15,6 +18,10 @@ def find_installed_ttf_fonts():
     return installed_fonts
 
 def get_font_names(font_paths):
+    """
+    Create a dictionary of font names from the passed in
+    font paths and return them
+    """
     fonts = {}
     for font in font_paths:
         tt = ttLib.TTFont(font)
